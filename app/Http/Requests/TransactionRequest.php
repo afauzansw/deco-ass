@@ -20,6 +20,7 @@ class TransactionRequest extends FormRequest
             'phone_number' => 'required|string',
             'price' => 'integer',
             'photo' => 'required|image|mimes:jpg,jpeg,png,gif',
+            
         ];
     }
 }
