@@ -72,12 +72,12 @@ const { setting } = toRefs(props);
 
 <template>
     <PublicLayout>
-        <header id="header" class="group px-6">
-            <nav class="mt-4 fixed overflow-hidden z-20 w-full border-b bg-white/50 backdrop-blur-2xl rounded-2xl">
-                <div class="px-6 m-auto max-w-6xl 2xl:px-0">
-                    <div class="flex flex-wrap items-center justify-between py-2 sm:py-4">
+        <header class="w-11/12 mx-auto">
+            <nav class="mt-4 fixed z-20 w-11/12 border-b bg-white/50 backdrop-blur-xl rounded-2xl">
+                <div class="px-6 lg:px-0 m-auto max-w-6xl 2xl:px-0">
+                    <div class="flex flex-wrap items-center justify-between py-2 px-8 sm:py-4">
                         <div class="w-full items-center flex justify-between lg:w-auto">
-                            <a href="/" aria-label="tailus logo">
+                            <a href="/" aria-label="deca-ass logo">
                                 <img :src="image.logo" class="h-16" alt="Example Image" />
                             </a>
                         </div>
@@ -102,7 +102,7 @@ const { setting } = toRefs(props);
 
                             <div
                                 class="w-full space-y-2 gap-2 pt-6 pb-4 lg:pb-0 border-t items-center flex flex-col lg:flex-row lg:space-y-0 lg:w-fit lg:border-l lg:border-t-0 lg:pt-0 lg:pl-2">
-                                <a class="btn px-6 py-2 bg-[#F5B0AE] text-[#333333] font-semibold rounded-full"
+                                <a class="ml-5 btn px-5 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full"
                                     href="#buy">
                                     <span>Beli Sekarang!</span>
                                 </a>
@@ -112,27 +112,26 @@ const { setting } = toRefs(props);
                 </div>
             </nav>
         </header>
+
         <main class="overflow-hidden">
-            <section id="home"
-                class="h-screen relative bg-gradient-to-r from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] overflow-hidden">
-                <div class="absolute top-0 left-0 right-0 -translate-y-full">
-                    <svg class="w-full h-auto" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-                        <path d="M0 100h1440V0s-120 45-240 45-240-45-480-45S480 90 240 90 0 45 0 45v55Z"
-                            fill="#FDD9D8" />
-                    </svg>
-                </div>
+            <section id="home" class="pt-28 h-screen relative overflow-hidden text-[#2C3E50]">
 
-                <div class="relative py-36">
-                    <div class="mx-auto px-6 max-w-6xl">
+                <div class="container py-14 mx-auto max-w-3xl">
+                    <div class="flex flex-col items-center text-center">
+                        <h3 class="font-bold text-4xl">Lorem ipsum dolor si amet. </h3>
 
+                        <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec felis in mi
+                            fermentum varius. In imperdiet dictum vulputate. Fusce vel metus nec tortor congue
+                            vulputate. Fusce odio lectus, hendrerit sit amet eros vitae, fermentum aliquam nulla.
+                            Integer lobortis laoreet suscipit. Suspendisse iaculis diam in eleifend blandit.</p>
+
+                        <a class="mt-20 btn px-5 py-2 w-3/12 bg-white border text-[#2C3E50] font-semibold rounded-full"
+                            href="#buy">
+                            <span>Beli Sekarang!</span>
+                        </a>
                     </div>
                 </div>
 
-                <div class="absolute bottom-0 left-0 right-0 translate-y-full">
-                    <svg class="w-full h-auto" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-                        <path d="M0 0h1440v55s-120-45-240-45-240 45-480 45-480-90-720-90V0Z" fill="#A2BDE6" />
-                    </svg>
-                </div>
             </section>
 
             <div class="relative mt-[-43px] lg:mt-[-152px]">
@@ -162,31 +161,20 @@ const { setting } = toRefs(props);
             <section id="about" class="py-24 bg-gray-100">
                 <div class="mx-auto px-6 max-w-6xl">
                     <div class="text-center">
-                        <h2 class="text-3xl text-[#333333] font-semibold">Tentang Produk Kami</h2>
+                        <h2 class="text-3xl text-[#2C3E50] font-semibold">Tentang Produk Kami</h2>
                         <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
                         <div class="mt-12 grid grid-cols-12 space-x-4 gap-4 mx-auto w-4/6">
+                            <div class="col-span-6 mb-4">
+                                <p class="text-[#383838] text-right">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Quisque nec felis in mi
+                                    fermentum varius. In imperdiet dictum vulputate. Fusce vel metus nec tortor congue
+                                    vulputate. Fusce odio lectus, hendrerit sit amet eros vitae, fermentum aliquam
+                                    nulla.
+                                    Integer lobortis laoreet suscipit. Suspendisse iaculis diam in eleifend blandit.</p>
+                            </div>
                             <div class="col-span-6 mb-4 relative">
                                 <img :src="image.mockups[image.currentIndex]" class="h-64 mx-auto"
                                     alt="Example Image" />
-                                <button @click="prevImage"
-                                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-300 hover:bg-gray-400 text-white rounded-full px-3 py-2">
-                                    &#8592;
-                                </button>
-                                <button @click="nextImage"
-                                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-300 hover:bg-gray-400 text-white rounded-full px-3 py-2">
-                                    &#8594;
-                                </button>
-                            </div>
-
-                            <div class="col-span-6 mb-4">
-                                <p class="text-[#383838] text-left">Kdetek merupakan tools kesehatan
-                                    untuk
-                                    mendeteksi penyakit kronis dalam waktu dini dengan efektif dan efisien. Difasilitasi
-                                    fitur score berdasarkan refrensi jurnal, research, dan pedoman komunitas yang
-                                    up-to-date
-                                    setiap hari.</p>
-                                <p class="mt-4 text-[#383838] text-left">Kdetek menyediakan 3 buku
-                                    yaitu: Deteksi Diabetes Melitus, Tiroid, dan Jantung Koroner.</p>
                             </div>
                         </div>
                     </div>
@@ -196,23 +184,23 @@ const { setting } = toRefs(props);
             <section id="about" class="py-24 bg-gray-100">
                 <div class="mx-auto px-6 max-w-6xl">
                     <div class="text-center">
-                        <h2 class="text-3xl text-[#333333] rounded-full font-semibold">Formulir Pembelian</h2>
+                        <h2 class="text-3xl text-[#2C3E50] rounded-full font-semibold">Formulir Pembelian</h2>
                         <div class="mt-2 mx-auto bg-[#F5B0AE] h-1 w-1/6"></div>
                     </div>
                     <form @submit.prevent="checkout">
-                        <div class="mt-12 mx-auto text-center w-1/2">
+                        <div class="mt-12 mx-auto text-center  text-[#2C3E50] w-1/2">
                             <div class="mb-4">
                                 <label class="block mb-1 font-medium text-left" for="receipt_name">Nama
                                     Penerima</label>
-                                <input class="input py-2 px-4 variant-mixed" placeholder="Abdul Ghofur" type="text"
+                                <input class="input py-2 px-4 variant-mixed" placeholder="" type="text"
                                     id="receipt_name" required v-model="transaction.receipt_name">
                                 <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                     message</span>
                             </div>
                             <div class="mb-4">
                                 <label class="block mb-1 font-medium text-left" for="address">Alamat</label>
-                                <input class="input py-2 px-4 variant-mixed" placeholder="Jl. Hati Mulia No.5"
-                                    type="text" id="address" required v-model="transaction.address">
+                                <input class="input py-2 px-4 variant-mixed" placeholder="Jl. Pahlawan No.5" type="text"
+                                    id="address" required v-model="transaction.address">
                                 <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                     message</span>
                             </div>
@@ -236,14 +224,14 @@ const { setting } = toRefs(props);
                             <div class="grid grid-cols-12 gap-4">
                                 <div class="col-span-6 mb-4">
                                     <label class="block mb-1 font-medium text-left" for="email">Kecamatan</label>
-                                    <input class="input py-2 px-4 variant-mixed" placeholder="Lowokwaru" type="text"
+                                    <input class="input py-2 px-4 variant-mixed" placeholder="Duwet" type="text"
                                         id="email" required v-model="transaction.subdistrict">
                                     <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                         message</span>
                                 </div>
                                 <div class="col-span-6 mb-4">
                                     <label class="block mb-1 font-medium text-left" for="email">Kabupaten</label>
-                                    <input class="input py-2 px-4 variant-mixed" placeholder="Malang" type="text"
+                                    <input class="input py-2 px-4 variant-mixed" placeholder="Kediri" type="text"
                                         id="email" required v-model="transaction.regency">
                                     <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                         message</span>
@@ -251,15 +239,15 @@ const { setting } = toRefs(props);
                             </div>
                             <div class="mb-4">
                                 <label class="block mb-1 font-medium text-left" for="province">Provinsi</label>
-                                <input class="input py-2 px-4 variant-mixed" placeholder="Jl. Hati Mulia No.5"
-                                    type="text" id="province" required v-model="transaction.province">
+                                <input class="input py-2 px-4 variant-mixed" placeholder="Jawa Timur" type="text"
+                                    id="province" required v-model="transaction.province">
                                 <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                     message</span>
                             </div>
                             <div class="grid grid-cols-12 gap-4">
                                 <div class="col-span-6 mb-4">
                                     <label class="block mb-1 font-medium text-left" for="email">Email</label>
-                                    <input class="input py-2 px-4 variant-mixed" placeholder="kdetek@gmail.com"
+                                    <input class="input py-2 px-4 variant-mixed" placeholder="decaass@gmail.com"
                                         type="email" id="email" required v-model="transaction.email">
                                     <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                         message</span>
@@ -288,7 +276,7 @@ const { setting } = toRefs(props);
                                     message</span>
                             </div>
                             <button type="submit"
-                                class="mt-2 py-2 bg-[#F5B0AE] font-semibold text-[#333333] w-full rounded-full">Pesan</button>
+                                class="mt-2 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold w-full rounded-full">Pesan</button>
                         </div>
                     </form>
                 </div>
@@ -297,13 +285,9 @@ const { setting } = toRefs(props);
 
         <footer>
             <div class="variant-outlined bg-gray-100">
-                <div class="max-w-6xl mx-auto space-y-16 px-6 pb-8 border-t 2xl:px-0">
-                    <div class="border-b pb-8">
-
-                    </div>
-                    <div class="flex items-center justify-between rounded-md px-6">
-                        <span class="text-[#333333]">DeCo-Ass &copy; 2024</span>
-                        <a href="#" class="text-sm text-body hover:text-primary-600">Licence</a>
+                <div class="mx-auto space-y-16 px-6 pb-8 border-t 2xl:px-0  text-[#2C3E50]">
+                    <div class="mt-12 mx-auto max-w-6xl flex items-center justify-between rounded-md px-6">
+                        <span class="">DeCo-Ass &copy; 2024</span>
                     </div>
                 </div>
             </div>
