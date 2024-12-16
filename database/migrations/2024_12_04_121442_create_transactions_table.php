@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('province');
             $table->string('email');
             $table->string('phone_number');
-            $table->string('product');
             $table->integer('price')->default(0);
             $table->enum('status', ['PAID', 'UNPAID'])->default('UNPAID');
             $table->timestamps();
