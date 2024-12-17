@@ -12,8 +12,7 @@ const props = defineProps({
 const image = reactive({
     logo: props.images.logo,
     banner: props.images.banner,
-    mockups: props.images.mockup,
-    currentIndex: 0,
+    mockup: props.images.mockup,
     slideDirection: '',
 })
 
@@ -58,14 +57,6 @@ function track() {
     router.post(route('transaction.track'), trackOrder)
 }
 
-function nextImage() {
-    image.currentIndex = (image.currentIndex + 1) % image.mockups.length;
-}
-
-function prevImage() {
-    image.currentIndex = (image.currentIndex - 1 + image.mockups.length) % image.mockups.length;
-}
-
 const { setting } = toRefs(props);
 
 </script>
@@ -97,12 +88,21 @@ const { setting } = toRefs(props);
                                         </a>
                                     </li>
 
+                                    <li>
+                                        <a href="#step" class="hover:link md:px-4 block">
+                                            <span>Cara Beli</span>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </div>
 
                             <div
                                 class="w-full space-y-2 gap-2 pt-6 pb-4 lg:pb-0 border-t items-center flex flex-col lg:flex-row lg:space-y-0 lg:w-fit lg:border-l lg:border-t-0 lg:pt-0 lg:pl-2">
-                                <a class="ml-5 btn px-5 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full"
+                                <a href="#track" class="btn px-5 py-2 border hover:bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full">
+                                    <span>Lacak Pemesanan</span>
+                                </a>
+                                <a class="btn px-5 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full"
                                     href="#buy">
                                     <span>Beli Sekarang!</span>
                                 </a>
@@ -173,10 +173,78 @@ const { setting } = toRefs(props);
                                     Integer lobortis laoreet suscipit. Suspendisse iaculis diam in eleifend blandit.</p>
                             </div>
                             <div class="col-span-6 mb-4 relative">
-                                <img :src="image.mockups[image.currentIndex]" class="h-64 mx-auto"
-                                    alt="Example Image" />
+                                <img :src="image.mockup" class="h-64 mx-auto" alt="Example Image" />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="track" class="py-24 bg-gray-100">
+                <div class="mx-auto px-6 max-w-6xl">
+                    <h2 class="text-3xl text-[#2C3E50] font-semibold text-center">Cara Membeli</h2>
+                    <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
+                    <div class="mt-16 flex flex-col items-center space-y-12">
+                        <div class="flex space-x-4 w-1/2">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
+                                1</div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Masukkan Data</h3>
+                                <p class="mt-2 text-gray-600">Isi formulir dengan lengkap sesuai dengan petunjuk.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 w-1/2">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
+                                2</div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Lakukan Pembayaran</h3>
+                                <p class="mt-2 text-gray-600">Transfer ke rekening <span class="font-semibold">{{
+                                    setting.account_number }} ({{ setting.account_channel
+                                        }})</span> a/n {{ setting.account_name }} <br> dan upload bukti pemayaran
+                                    melalui
+                                    formulir tadi.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 w-1/2">
+                            <div
+                                class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
+                                3</div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Tunggu Konfirmasi</h3>
+                                <p class="mt-2 text-gray-600">Setelah pembayaran selesai, tunggu konfirmasi dari kami.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="track" class="py-24 bg-gray-100">
+                <div class="mx-auto px-6 max-w-6xl">
+                    <div class="text-center">
+                        <h2 class="text-3xl text-[#2C3E50] font-semibold">Lacak Pemesanan</h2>
+                        <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
+                        <form @submit.prevent="track">
+                            <div class="mt-12 mx-auto text-center w-1/2">
+                                <div class="mb-4">
+                                    <label class="block mb-1 font-medium text-left" for="number">ID Transaksi</label>
+                                    <input class="input py-2 px-4 variant-mixed" placeholder="TR-xxxx" type="text"
+                                        id="number" required v-model="trackOrder.number">
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block mb-1 font-medium text-left" for="email">Email</label>
+                                    <input class="input py-2 px-4 variant-mixed" placeholder="kdetek@gmail.com"
+                                        type="email" id="email" required v-model="trackOrder.email">
+                                </div>
+                                <button type="submit"
+                                    class="mt-2 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold w-full rounded-full">Lacak</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>

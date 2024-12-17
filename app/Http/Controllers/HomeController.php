@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TrackRequest;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Setting;
 use App\Models\Transaction;
@@ -15,11 +16,7 @@ class HomeController extends Controller
         $images = json_encode([
             'logo' => asset('logo.png'),
             'banner' => asset('banner.jpeg'),
-            'mockup' => [
-                asset('mockup1.png'),
-                asset('mockup2.png'),
-                asset('mockup3.png')
-            ]
+            'mockup' => 'https://img.freepik.com/free-vector/book-mockup_1017-6282.jpg'
         ]);
 
         $setting = Setting::firstOrFail();
@@ -47,5 +44,16 @@ class HomeController extends Controller
     {
         $transaction = Transaction::findOrFail($id);
         return Inertia::render('Transaction/Success', ['transaction' => $transaction]);
+    }
+
+    public function track(TrackRequest $request)
+    {
+        $data = $request->validated();
+        $transaction = Transaction::query()
+        ->where('number', $data['number'])
+        ->where('email', $data['email'])
+        ->firstOrFail();
+
+        return Inertia::render('Transaction/Tracking', ['transaction' => $transaction]);
     }
 }

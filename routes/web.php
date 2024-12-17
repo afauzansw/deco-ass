@@ -12,7 +12,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::post('checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::get('checkout/{id}/success', [HomeController::class, 'checkoutSuccess'])->name('checkout.success');
 
-Route::post('transaction/track', [HomeController::class, 'checkoutSuccess'])->name('transaction.track');
+Route::post('track', [HomeController::class, 'track'])->name('transaction.track');
 
 Route::prefix('auth')->name('auth.')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
