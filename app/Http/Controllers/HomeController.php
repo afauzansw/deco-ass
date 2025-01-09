@@ -16,7 +16,7 @@ class HomeController extends Controller
         $images = json_encode([
             'logo' => asset('logo.png'),
             'banner' => asset('banner.jpeg'),
-            'mockup' => 'https://img.freepik.com/free-vector/book-mockup_1017-6282.jpg'
+            'mockup' => asset('product.jpeg')
         ]);
 
         $setting = Setting::firstOrFail();

@@ -119,12 +119,7 @@ const { setting } = toRefs(props);
 
                 <div class="container py-14 mx-auto max-w-3xl">
                     <div class="flex flex-col items-center text-center">
-                        <h3 class="font-bold text-4xl">Lorem ipsum dolor si amet. </h3>
-
-                        <p class="mt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec felis in mi
-                            fermentum varius. In imperdiet dictum vulputate. Fusce vel metus nec tortor congue
-                            vulputate. Fusce odio lectus, hendrerit sit amet eros vitae, fermentum aliquam nulla.
-                            Integer lobortis laoreet suscipit. Suspendisse iaculis diam in eleifend blandit.</p>
+                        <h3 class="font-bold text-4xl">FIND YOUR BAG FOR MORE FLEXIBLE AND FASHIONABLE. </h3>
 
                         <a class="mt-20 btn px-5 py-2 w-3/12 bg-white border text-[#2C3E50] font-semibold rounded-full"
                             href="#buy">
