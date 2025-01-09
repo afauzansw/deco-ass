@@ -26,17 +26,13 @@ const transaction = reactive({
     province: '',
     email: '',
     phone_number: '',
-    photo: null,
+    photo_url: '',
 })
 
 const trackOrder = reactive({
     number: '',
     email: '',
 })
-
-function handleFileChange(event) {
-    transaction.photo = event.target.files[0];
-}
 
 function checkout() {
     const formData = new FormData();
@@ -332,10 +328,9 @@ const { setting } = toRefs(props);
                                     message</span>
                             </div>
                             <div class="mb-4">
-                                <label class="block mb-1 font-medium text-left" for="email">Bukti Pembayaran</label>
-                                <input type="file" id="file-upload"
-                                    class="input py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#1D55FF] focus:ring-opacity-50"
-                                    required @change="handleFileChange">
+                                <label class="block mb-1 font-medium text-left" for="email">Link Bukti Pembayaran</label>
+                                <input class="input py-2 px-4 variant-mixed" type="url"
+                                        id="phone" required v-model="transaction.photo_url">
                                 <span class="hidden peer-disabled:text-gray-600   text-gray-500   text-sm">Helper
                                     message</span>
                             </div>

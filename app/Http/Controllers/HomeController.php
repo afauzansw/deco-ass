@@ -30,14 +30,13 @@ class HomeController extends Controller
     public function checkout(TransactionRequest $request)
     {
         $params = $request->validated();
-        $photo = $params['photo'];
 
         $params['price'] = 85000;
 
-        unset($params['photo']);
+        // unset($params['photo']);
 
         $transaction = Transaction::create($params);
-        $transaction->addMediaFromRequest('photo')->toMediaCollection('photo');
+        // $transaction->addMediaFromRequest('photo')->toMediaCollection('photo');
 
         return redirect()->route('checkout.success', $transaction->id);
     }
