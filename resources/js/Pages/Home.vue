@@ -99,7 +99,8 @@ const { setting } = toRefs(props);
 
                             <div
                                 class="w-full space-y-2 gap-2 pt-6 pb-4 lg:pb-0 border-t items-center flex flex-col lg:flex-row lg:space-y-0 lg:w-fit lg:border-l lg:border-t-0 lg:pt-0 lg:pl-2">
-                                <a href="#track" class="btn px-5 py-2 border hover:bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full">
+                                <a href="#track"
+                                    class="btn px-5 py-2 border hover:bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full">
                                     <span>Lacak Pemesanan</span>
                                 </a>
                                 <a class="btn px-5 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full"
@@ -165,12 +166,9 @@ const { setting } = toRefs(props);
                         <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
                         <div class="mt-12 grid grid-cols-12 space-x-4 gap-4 mx-auto w-4/6">
                             <div class="col-span-6 mb-4">
-                                <p class="text-[#383838] text-right">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Quisque nec felis in mi
-                                    fermentum varius. In imperdiet dictum vulputate. Fusce vel metus nec tortor congue
-                                    vulputate. Fusce odio lectus, hendrerit sit amet eros vitae, fermentum aliquam
-                                    nulla.
-                                    Integer lobortis laoreet suscipit. Suspendisse iaculis diam in eleifend blandit.</p>
+                                <p class="text-[#383838] text-right">Deco-Ass bag merupakan produk yang hadir dengan
+                                    model yang sangat fungsional bagi dokter coass maupun dokter muda dalam mempermudah
+                                    menjalankan visite dengan kompartemen yang memadai.</p>
                             </div>
                             <div class="col-span-6 mb-4 relative">
                                 <img :src="image.mockup" class="h-64 mx-auto" alt="Example Image" />
