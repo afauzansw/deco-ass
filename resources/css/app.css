@@ -47,8 +47,6 @@
         --ui-bg-opacity: 1;
 
         color : var(--body-text-color);
-
-        @apply dark:[--ui-border-color:theme('colors.gray.800')] dark:[--ui-disabled-bg:theme('colors.gray.900')] dark:[--ui-bg:theme('colors.gray.900/var(--ui-bg-opacity)')] dark:[--ui-soft-bg:theme('colors.gray.800')] dark:[--display-text-color:theme('colors.white')] dark:[--body-text-color:theme('colors.gray.300')] dark:[--placeholder-text-color:theme('colors.gray.600')]
     }
 
     *{

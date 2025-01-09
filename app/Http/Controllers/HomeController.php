@@ -32,6 +32,8 @@ class HomeController extends Controller
         $params = $request->validated();
         $photo = $params['photo'];
 
+        $params['price'] = 85000;
+
         unset($params['photo']);
 
         $transaction = Transaction::create($params);

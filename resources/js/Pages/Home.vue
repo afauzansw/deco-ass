@@ -27,7 +27,6 @@ const transaction = reactive({
     email: '',
     phone_number: '',
     photo: null,
-    price: '',
 })
 
 const trackOrder = reactive({
@@ -46,7 +45,7 @@ function checkout() {
         formData.append(key, transaction[key]);
     }
 
-    router.post('/checkout', formData, {
+    router.post(route('checkout'), formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
         },
@@ -66,14 +65,18 @@ const { setting } = toRefs(props);
         <header class="w-11/12 mx-auto">
             <nav class="mt-4 fixed z-20 w-11/12 border-b bg-white/50 backdrop-blur-xl rounded-2xl">
                 <div class="px-6 lg:px-0 m-auto max-w-6xl 2xl:px-0">
-                    <div class="flex flex-wrap items-center justify-between py-2 px-8 sm:py-4">
+                    <div class="flex items-center justify-between py-2 lg:px-8 sm:py-4">
                         <div class="w-full items-center flex justify-between lg:w-auto">
                             <a href="/" aria-label="deca-ass logo">
                                 <img :src="image.logo" class="h-16" alt="Example Image" />
                             </a>
                         </div>
+                        <a class="show lg:hidden btn px-5 py-2 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold rounded-full text-nowrap"
+                            href="#buy">
+                            <span>Beli Sekarang!</span>
+                        </a>
                         <div
-                            class="w-full group-data-[state=active]:h-fit h-0 lg:w-fit flex-wrap justify-end items-center space-y-8 lg:space-y-0 lg:flex lg:h-fit md:flex-nowrap">
+                            class="hidden lg:show w-full group-data-[state=active]:h-fit h-0 lg:w-fit flex-wrap justify-end items-center space-y-8 lg:space-y-0 lg:flex lg:h-fit md:flex-nowrap">
                             <div class="mt-6 md:-ml-4 lg:pr-4 lg:mt-0">
                                 <ul class="space-y-6 tracking-wide text-base lg:text-sm lg:flex lg:space-y-0">
                                     <li>
@@ -115,13 +118,13 @@ const { setting } = toRefs(props);
         </header>
 
         <main class="overflow-hidden">
-            <section id="home" class="pt-28 h-screen relative overflow-hidden text-[#2C3E50]">
+            <section id="home" class="pt-28 lg:h-screen relative overflow-hidden text-[#2C3E50]">
 
                 <div class="container py-14 mx-auto max-w-3xl">
-                    <div class="flex flex-col items-center text-center">
+                    <div class="px-14 lg:px-0 flex flex-col items-center text-center">
                         <h3 class="font-bold text-4xl">FIND YOUR BAG FOR MORE FLEXIBLE AND FASHIONABLE. </h3>
 
-                        <a class="mt-20 btn px-5 py-2 w-3/12 bg-white border text-[#2C3E50] font-semibold rounded-full"
+                        <a class="mt-20 mb-20 btn px-5 py-2 lg:w-3/12 bg-white border text-[#2C3E50] font-semibold rounded-full text-nowrap"
                             href="#buy">
                             <span>Beli Sekarang!</span>
                         </a>
@@ -160,25 +163,25 @@ const { setting } = toRefs(props);
                         <h2 class="text-3xl text-[#2C3E50] font-semibold">Tentang Produk Kami</h2>
                         <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
                         <div class="mt-12 grid grid-cols-12 space-x-4 gap-4 mx-auto w-4/6">
-                            <div class="col-span-6 mb-4">
-                                <p class="text-[#383838] text-right">Deco-Ass bag merupakan produk yang hadir dengan
+                            <div class="col-span-12 lg:col-span-6 mb-4 relative">
+                                <img :src="image.mockup" class="h-64 mx-auto" alt="Example Image" />
+                            </div>
+                            <div class="col-span-12 lg:col-span-6 mb-4">
+                                <p class="text-[#383838] text-left">Deco-Ass bag merupakan produk yang hadir dengan
                                     model yang sangat fungsional bagi dokter coass maupun dokter muda dalam mempermudah
                                     menjalankan visite dengan kompartemen yang memadai.</p>
-                            </div>
-                            <div class="col-span-6 mb-4 relative">
-                                <img :src="image.mockup" class="h-64 mx-auto" alt="Example Image" />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="track" class="py-24 bg-gray-100">
+            <section id="step" class="py-24 bg-gray-100">
                 <div class="mx-auto px-6 max-w-6xl">
                     <h2 class="text-3xl text-[#2C3E50] font-semibold text-center">Cara Membeli</h2>
                     <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
                     <div class="mt-16 flex flex-col items-center space-y-12">
-                        <div class="flex space-x-4 w-1/2">
+                        <div class="flex items-center space-x-4 lg:w-1/2">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
                                 1</div>
@@ -188,7 +191,7 @@ const { setting } = toRefs(props);
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-4 w-1/2">
+                        <div class="flex items-center space-x-4 lg:w-1/2">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
                                 2</div>
@@ -203,7 +206,7 @@ const { setting } = toRefs(props);
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-4 w-1/2">
+                        <div class="flex items-center space-x-4 lg:w-1/2">
                             <div
                                 class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#FDD9D8] via-[#E1D8E5] to-[#C5D8F2] text-[#2C3E50] font-semibold flex items-center justify-center rounded-full">
                                 3</div>
@@ -223,7 +226,7 @@ const { setting } = toRefs(props);
                         <h2 class="text-3xl text-[#2C3E50] font-semibold">Lacak Pemesanan</h2>
                         <div class="mt-2 mx-auto bg-[#F5B0AE] rounded-full h-1 w-1/6"></div>
                         <form @submit.prevent="track">
-                            <div class="mt-12 mx-auto text-center w-1/2">
+                            <div class="mt-12 mx-auto text-center lg:w-1/2">
                                 <div class="mb-4">
                                     <label class="block mb-1 font-medium text-left" for="number">ID Transaksi</label>
                                     <input class="input py-2 px-4 variant-mixed" placeholder="TR-xxxx" type="text"
@@ -242,14 +245,14 @@ const { setting } = toRefs(props);
                 </div>
             </section>
 
-            <section id="about" class="py-24 bg-gray-100">
+            <section id="buy" class="py-24 bg-gray-100">
                 <div class="mx-auto px-6 max-w-6xl">
                     <div class="text-center">
                         <h2 class="text-3xl text-[#2C3E50] rounded-full font-semibold">Formulir Pembelian</h2>
                         <div class="mt-2 mx-auto bg-[#F5B0AE] h-1 w-1/6"></div>
                     </div>
                     <form @submit.prevent="checkout">
-                        <div class="mt-12 mx-auto text-center  text-[#2C3E50] w-1/2">
+                        <div class="mt-12 mx-auto text-center text-[#2C3E50] lg:w-1/2">
                             <div class="mb-4">
                                 <label class="block mb-1 font-medium text-left" for="receipt_name">Nama
                                     Penerima</label>
@@ -323,8 +326,8 @@ const { setting } = toRefs(props);
                             </div>
                             <div class=" col-span-6 mb-4">
                                 <label class="block mb-1 font-medium text-left" for="email">Harga</label>
-                                <input class="input py-2 px-4 variant-mixed" type="text" id="price" required
-                                    v-model="transaction.price" readonly>
+                                <input class="input py-2 px-4 variant-mixed" type="text" id="price" value="85.000"
+                                    readonly>
                                 <span class="hidden peer-disabled:text-gray-600 text-gray-500 text-sm">Helper
                                     message</span>
                             </div>

@@ -18,9 +18,9 @@ class TransactionRequest extends FormRequest
             'province' => 'required|string',
             'email' => 'required|string',
             'phone_number' => 'required|string',
-            'price' => 'integer',
+            // 'price' => 'integer',
             'photo' => 'required|image|mimes:jpg,jpeg,png,gif',
-            
+
         ];
     }
 }
