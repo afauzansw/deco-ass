@@ -104,6 +104,12 @@ const props = defineProps({
                                 <div class="col-span-8 mb-4 font-semibold">
                                     {{ transaction.province }}
                                 </div>
+                                <div class="col-span-4 mb-4">
+                                    URL Foto
+                                </div>
+                                <div class="col-span-8 mb-4 font-semibold">
+                                    {{ transaction.photo_url }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +118,7 @@ const props = defineProps({
 
                     <div class="mt-7">
                         <p>Bukti Pembayaran</p>
-                        <img :src="transaction.photo" class="mt-4 mx-auto h-[400px]" alt="Example Image" />
+                        <img :src="transaction.photo_url" class="mt-4 mx-auto h-[400px]" alt="Example Image" />
                     </div>
 
                 </div>
