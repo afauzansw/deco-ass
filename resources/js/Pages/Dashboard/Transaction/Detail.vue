@@ -1,7 +1,6 @@
 <script setup>
 import { route } from 'ziggy-js';
 import BackofficeLayout from '../../../Layout/BackofficeLayout.vue'
-import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
     transaction: Object,
@@ -45,7 +44,7 @@ const props = defineProps({
                                     Produk
                                 </div>
                                 <div class="col-span-8 mb-4 font-semibold">
-                                    {{ transaction.product }}
+                                    Deco-Ass bag
                                 </div>
                                 <div class="col-span-4 mb-4">
                                     Harga
@@ -108,7 +107,10 @@ const props = defineProps({
                                     URL Foto
                                 </div>
                                 <div class="col-span-8 mb-4 font-semibold">
-                                    {{ transaction.photo_url }}
+                                    <a :href="transaction.photo_url" target="_blank" rel="noopener noreferrer"
+                                        class="text-blue-500 underline">
+                                        Link
+                                    </a>
                                 </div>
                             </div>
                         </div>
